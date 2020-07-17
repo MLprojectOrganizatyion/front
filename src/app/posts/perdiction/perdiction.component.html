@@ -10,7 +10,13 @@
       <div class="form-element">
         <button mat-raised-button (click)="getPridect()" color="accent" class="button">Prediction</button>
       </div>
-      <h1>Porcentage: {{perdict.traffic_30}}</h1>
+
+      <mat-list role="list">
+        <mat-list-item role="listitem">Ce modèle prèdire que cette image a: {{perdict.traffic_30}} de signe de traffic 30 </mat-list-item>
+        <mat-list-item role="listitem">Ce modèle prèdire que cette image a: {{perdict.traffic_50}} de signe de traffic 50</mat-list-item>
+        <mat-list-item role="listitem">Ce modèle prèdire que cette image a: {{perdict.traffic_60}} de signe de traffic 60</mat-list-item>
+      </mat-list>
+      <!-- <h1>Porcentage: {{perdict.traffic_30}}</h1> -->
     </div>
   </mat-card-content>
 </mat-card>

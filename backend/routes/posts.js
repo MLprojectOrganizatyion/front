@@ -10,24 +10,7 @@ const MIME_TYPE_MAP = {
   "image/jpeg": "jpg",
   "image/jpg": "jpg"
 };
-const storage_ml = multer.diskStorage({
-  destination: (req, file, cb) => {
-    const isValid = MIME_TYPE_MAP[file.mimetype];
-    let error = new Error("Invalid mime type");
-    if (isValid) {
-      error = null;
-    }
-    cb(error, "D:/ESGI/1annee/S2/FrameworkML/MLorganization/ClientLourd/clienLourd/loadImages");
-  },
-  filename: (req, file, cb) => {
-    const name = file.originalname
-      .toLowerCase()
-      .split(" ")
-      .join("-");
-    const ext = MIME_TYPE_MAP[file.mimetype];
-    cb(null, name + "-" + Date.now() + "." + ext);
-  }
-});
+
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -37,7 +20,7 @@ const storage = multer.diskStorage({
       error = null;
     }
     cb(error, "backend/images");
-    cb(error, "D:/ESGI/1annee/S2/FrameworkML/projectML/MLproject/treatMyDataSet/loadImages");
+    cb(error, "D:/ESGI/1annee/S2/FrameworkML/MLorganization/ClientLourd/clienLourd/loadImages");
   },
   filename: (req, file, cb) => {
     const name = file.originalname
@@ -56,7 +39,6 @@ router.post(
     const url = req.protocol + "://" + req.get("host");
     const post = new Post({
       title: req.body.title,
-      content: req.body.content,
       imagePath: url + "/images/" + req.file.filename
     });
     post.save().then(createdPost => {
@@ -83,7 +65,6 @@ router.put(
     const post = new Post({
       _id: req.body.id,
       title: req.body.title,
-      content: req.body.content,
       imagePath: imagePath
     });
     console.log(post);

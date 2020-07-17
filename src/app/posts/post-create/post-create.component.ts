@@ -13,7 +13,6 @@ import { mimeType } from "./mime-type.validator";
 })
 export class PostCreateComponent implements OnInit {
   enteredTitle = "";
-  enteredContent = "";
   post: Post;
   isLoading = false;
   form: FormGroup;
@@ -31,7 +30,6 @@ export class PostCreateComponent implements OnInit {
       title: new FormControl(null, {
         validators: [Validators.required, Validators.minLength(3)]
       }),
-      content: new FormControl(null, { validators: [Validators.required] }),
       image: new FormControl(null, {
         validators: [Validators.required],
         asyncValidators: [mimeType]
@@ -47,12 +45,10 @@ export class PostCreateComponent implements OnInit {
           this.post = {
             id: postData._id,
             title: postData.title,
-            content: postData.content,
             imagePath: postData.imagePath
           };
           this.form.setValue({
             title: this.post.title,
-            content: this.post.content,
             image: this.post.imagePath
           });
         });
@@ -82,14 +78,12 @@ export class PostCreateComponent implements OnInit {
     if (this.mode === "create") {
       this.postsService.addPost(
         this.form.value.title,
-        this.form.value.content,
         this.form.value.image
       );
     } else {
       this.postsService.updatePost(
         this.postId,
         this.form.value.title,
-        this.form.value.content,
         this.form.value.image
       );
     }

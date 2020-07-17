@@ -12,10 +12,6 @@
     <div class="image-preview" *ngIf="imagePreview !== '' && imagePreview && form.get('image').valid">
       <img [src]="imagePreview" [alt]="form.value.title">
     </div>
-    <mat-form-field>
-      <textarea matInput rows="4" formControlName="content" placeholder="Image Description"></textarea>
-      <mat-error *ngIf="form.get('content').invalid">Please enter a image  description.</mat-error>
-    </mat-form-field>
     <button mat-raised-button color="accent" type="submit">Save Post</button>
   </form>
 </mat-card>
