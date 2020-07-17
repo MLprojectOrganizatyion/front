@@ -1,0 +1,56 @@
+mat-grid-tile {
+  background: lightblue;
+}
+
+
+:host {
+  display: block;
+  margin-top: 1rem;
+}
+
+mat-spinner {
+  margin: auto;
+}
+
+.info-text {
+  text-align: center;
+}
+
+.post-image {
+  width: 50%;
+}
+
+.post-image img {
+  width: 50%;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+ table {
+  width: 100%;
+}
+
+.users-list {
+  height: 400px;
+  width: 800px;
+  overflow: auto;
+}
+
+.row {
+  cursor: pointer;
+}
+
+
+ul,  
+li {  
+      margin: 0;  
+      padding: 0;  
+      list-style: none;  
+}
+
+[_nghost-qpw-c5] {
+  display: block;
+  /* margin-top: 1rem; */
+  /* height: 100px; */
+  width: 800px;
+}
