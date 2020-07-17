@@ -17,7 +17,7 @@ const storage_ml = multer.diskStorage({
     if (isValid) {
       error = null;
     }
-    cb(error, "D:/ESGI/1annee/S2/FrameworkML/projectML/MLproject/treatMyDataSet/loadImages");
+    cb(error, "D:/ESGI/1annee/S2/FrameworkML/MLorganization/ClientLourd/clienLourd/loadImages");
   },
   filename: (req, file, cb) => {
     const name = file.originalname
